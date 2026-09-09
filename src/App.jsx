@@ -1,6 +1,7 @@
 import './index.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import CanvasEffects from './components/CanvasEffects';
+import HomeButton from './components/HomeButton';
 import Hero from './components/Hero';
 import Cake from './components/Cake';
 import Gallery from './components/Gallery';
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <CanvasEffects />
+      <HomeButton />
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/cake" element={<Cake />} />
