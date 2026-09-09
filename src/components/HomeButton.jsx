@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function HomeButton() {
+export default function HomeButton({ exiting, setExiting }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [exiting, setExiting] = useState(false);
 
   // Only show on pages other than home
   if (location.pathname === '/') return null;
@@ -12,8 +10,9 @@ export default function HomeButton() {
   const handleHome = () => {
     if (exiting) return;
     setExiting(true);
-    setTimeout(() => navigate('/'), 400);
+    setTimeout(() => navigate('/'), 600); // match PageTransition exit duration
   };
+
 
   return (
     <div className={`home-roamer ${exiting ? 'home-btn-exit' : ''}`}>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import HomeButton from './HomeButton';
 
 /**
  * Wraps a page in a full-screen container with a fade-up entrance animation.
@@ -46,6 +47,7 @@ export default function PageTransition({ children, nextPath, nextLabel }) {
       ref={containerRef}
       className={`page-transition ${visible ? 'page-enter' : ''} ${exiting ? 'page-exit' : ''}`}
     >
+      <HomeButton exiting={exiting} setExiting={setExiting} />
       <div className="page-content">
         {children}
       </div>
