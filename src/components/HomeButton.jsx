@@ -18,15 +18,15 @@ export default function HomeButton() {
   return (
     <div className={`home-roamer ${exiting ? 'home-btn-exit' : ''}`}>
       <button
-        className="home-balloon-btn"
+        className="home-float-btn"
         onClick={handleHome}
         aria-label="Go to home page"
       >
-        <div className="home-balloon-string"></div>
-        <span className="home-btn-icon">🎈</span>
+        <span className="home-btn-icon">🏠</span>
         <span className="home-btn-label">Home</span>
       </button>
     </div>
   );
 }
+
 

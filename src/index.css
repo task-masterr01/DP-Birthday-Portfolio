@@ -168,55 +168,34 @@ footer{text-align:center;padding:2.5rem 1rem;color:var(--muted);font-size:.78rem
   transition:opacity .4s ease,transform .4s ease;
 }
 .home-btn-exit{opacity:0;transform:scale(.5);}
-.home-balloon-btn{
-  position:relative;
-  background:none;
-  border:none;
+.home-float-btn{
   display:flex;
-  flex-direction:column;
   align-items:center;
-  cursor:pointer;
-  animation:bob 3s ease-in-out infinite alternate;
-  transition:transform .2s ease;
-}
-.home-balloon-btn:hover{transform:scale(1.15);}
-.home-balloon-btn:active{transform:scale(.95);}
-.home-balloon-string{
-  position:absolute;
-  bottom:-20px;
-  width:2px;
-  height:25px;
-  background:rgba(255,255,255,.4);
-  border-radius:2px;
-  transform-origin:top center;
-  animation:swing 2s ease-in-out infinite alternate;
-}
-.home-btn-icon{
-  font-size:2.5rem;
-  line-height:1;
-  filter:drop-shadow(0 4px 12px rgba(255,182,217,.4));
-  z-index:2;
-}
-.home-btn-label{
-  position:absolute;
-  bottom:-40px;
-  font-family:'Poppins',sans-serif;
-  font-size:.7rem;
-  font-weight:600;
-  color:var(--text);
-  background:rgba(14,10,31,.6);
-  padding:.2rem .6rem;
+  gap:.45rem;
+  padding:.55rem 1.1rem .55rem .8rem;
+  border:1px solid rgba(201,177,255,.3);
   border-radius:999px;
-  backdrop-filter:blur(4px);
-  opacity:0;
-  transform:translateY(-10px);
-  transition:opacity .3s,transform .3s;
-  pointer-events:none;
+  background:rgba(14,10,31,.65);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  color:var(--lav-lt);
+  font-family:'Poppins',sans-serif;
+  font-size:.78rem;
+  font-weight:500;
+  letter-spacing:.05em;
+  cursor:pointer;
+  box-shadow:0 4px 20px rgba(0,0,0,.35),0 0 0 1px rgba(201,177,255,.08);
+  animation:bob 3s ease-in-out infinite alternate;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
 }
-.home-balloon-btn:hover .home-btn-label{
-  opacity:1;
-  transform:translateY(0);
+.home-float-btn:hover{
+  background:rgba(201,177,255,.12);
+  transform:scale(1.06);
+  box-shadow:0 8px 28px rgba(201,177,255,.25);
 }
+.home-float-btn:active{transform:scale(.96);}
+.home-btn-icon{font-size:1rem;line-height:1;}
+.home-btn-label{line-height:1;}
 
 @keyframes roamScreen {
   0% { transform:translate(0, 0) rotate(-3deg); }
