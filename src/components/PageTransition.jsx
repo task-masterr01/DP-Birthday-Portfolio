@@ -13,9 +13,9 @@ export default function PageTransition({ children, nextPath, nextLabel }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // small delay to trigger the CSS entrance transition
-    const t = requestAnimationFrame(() => setVisible(true));
-    return () => cancelAnimationFrame(t);
+    // small delay to allow DOM to paint before triggering CSS transition
+    const t = setTimeout(() => setVisible(true), 50);
+    return () => clearTimeout(t);
   }, []);
 
   // Re-run the reveal observer whenever the page enters
