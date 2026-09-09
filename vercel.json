@@ -6,9 +6,3 @@
     }
   ]
 }
-
-
-git add .
-git commit -m "fix: add vercel.json to handle React Router"
-git push
-
