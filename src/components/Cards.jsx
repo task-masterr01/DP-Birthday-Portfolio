@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PageTransition from './PageTransition';
 import { launchConfetti, showToast } from './CanvasEffects';
 
@@ -78,7 +78,7 @@ export default function Cards() {
   };
 
   return (
-    <PageTransition nextPath="/secret" nextLabel="Unlock a Secret 🔐">
+    <PageTransition>
       <section id="cards-section">
         <div className="wrap">
           <div className="divider reveal" />
