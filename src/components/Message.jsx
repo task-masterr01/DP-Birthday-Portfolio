@@ -2,7 +2,7 @@ import PageTransition from './PageTransition';
 
 export default function Message() {
   return (
-    <PageTransition nextPath="/cards" nextLabel="Something Special 🃏">
+    <PageTransition nextPath="/secret" nextLabel="Unlock a Secret 🔐">
       <section id="message-section">
         <div className="wrap">
           <div className="divider reveal"></div>
