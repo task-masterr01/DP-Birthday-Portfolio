@@ -292,3 +292,221 @@ footer{text-align:center;padding:2.5rem 1rem;color:var(--muted);font-size:.78rem
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
 }
+
+/* ── CARDS PAGE ─────────────────────────────────────── */
+#cards-section{
+  padding: clamp(3rem,8vh,6rem) 0 2rem;
+  display:flex; align-items:center; justify-content:center;
+  min-height:80dvh;
+}
+
+/* stage that holds label + card + buttons */
+.card-stage{
+  display:flex; flex-direction:column; align-items:center;
+  gap:1.4rem; width:100%;
+}
+.flip-card-container{
+  transition: opacity .3s ease, transform .3s ease;
+}
+.card-exiting{
+  opacity: 0;
+  transform: translateX(-40px) scale(0.95);
+}
+
+/* floating category label above card */
+.card-category-label{
+  background: rgba(201,177,255,.1);
+  border: 1px solid rgba(201,177,255,.22);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  padding: .45rem 1.4rem;
+  animation: floatLabel 3s ease-in-out infinite;
+}
+.card-category-label span{
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(.78rem,2vw,.92rem);
+  font-weight: 500;
+  color: var(--lav-lt);
+  letter-spacing: .06em;
+}
+@keyframes floatLabel{
+  0%,100%{ transform:translateY(0);   }
+  50%    { transform:translateY(-6px); }
+}
+
+/* progress dots */
+.card-dots{
+  display:flex; gap:.55rem; align-items:center;
+}
+.card-dot{
+  width:8px; height:8px; border-radius:50%;
+  background: rgba(201,177,255,.22);
+  transition: background .4s, transform .4s;
+}
+.card-dot.active{
+  background: var(--lav);
+  transform: scale(1.35);
+  box-shadow: 0 0 8px rgba(201,177,255,.6);
+}
+.card-dot.done{
+  background: var(--rose);
+}
+
+/* 3-D flip card container */
+.flip-card{
+  width: clamp(280px,85vw,420px);
+  height: clamp(340px,55vh,480px);
+  perspective: 1200px;
+  cursor: default;
+}
+.flip-card-back,
+.flip-card-front{
+  position:absolute; inset:0;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform .75s cubic-bezier(.4,0,.2,1);
+  overflow: hidden;
+}
+
+/* Back face (shown first) */
+.flip-card-back{
+  background: linear-gradient(135deg,
+    rgba(155,121,232,.25) 0%,
+    rgba(244,142,177,.18) 100%);
+  border: 1px solid rgba(201,177,255,.25);
+  backdrop-filter: blur(16px);
+  display: flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:1rem;
+  transform: rotateY(0deg);
+}
+/* decorative repeating pattern on back */
+.card-back-pattern{
+  position:absolute; inset:0; border-radius:24px; overflow:hidden;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(201,177,255,.06) 0px,
+      rgba(201,177,255,.06) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,182,217,.05) 0px,
+      rgba(255,182,217,.05) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+}
+.card-back-emoji{
+  font-size: clamp(3.5rem,12vw,5.5rem);
+  position:relative; z-index:1;
+  animation: pulseEmoji 2.4s ease-in-out infinite;
+}
+@keyframes pulseEmoji{
+  0%,100%{ transform:scale(1)    rotate(-4deg); }
+  50%    { transform:scale(1.12) rotate( 4deg); }
+}
+.card-back-hint{
+  position:relative; z-index:1;
+  font-size:.78rem; color:var(--muted); font-style:italic;
+  letter-spacing:.05em;
+}
+
+/* Front face (revealed after flip) */
+.flip-card-front{
+  background: linear-gradient(135deg,
+    rgba(201,177,255,.12) 0%,
+    rgba(255,182,217,.10) 100%);
+  border: 1px solid rgba(201,177,255,.3);
+  backdrop-filter: blur(20px);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding: clamp(1.5rem,5vw,2.4rem);
+  gap:.8rem;
+  transform: rotateY(180deg); /* starts facing away */
+}
+.card-front-category{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.1rem,3.5vw,1.5rem);
+  color:var(--rose); text-align:center;
+  margin-bottom:.4rem;
+}
+.card-front-message{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(.85rem,2.2vw,1rem);
+  font-weight:300;
+  color:var(--text);
+  line-height:1.85;
+  text-align:center;
+  white-space: pre-line; /* respects \n in shayari */
+}
+.card-front-deco{
+  font-size:1.4rem; color:var(--lav); opacity:.55; margin-top:.4rem;
+}
+
+/* Flip state — rotate both faces */
+.flip-card.flipped .flip-card-back { transform: rotateY(-180deg); }
+.flip-card.flipped .flip-card-front{ transform: rotateY(0deg);    }
+
+/* The card itself needs position:relative so absolute children work */
+.flip-card{ position:relative; }
+
+/* Action buttons */
+.card-actions{
+  display:flex; justify-content:center;
+}
+.card-btn{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(.88rem,2.2vw,1rem);
+  font-weight:600;
+  border:none; border-radius:999px;
+  padding:.8rem 2.4rem;
+  cursor:pointer;
+  transition: transform .2s, box-shadow .2s, background .3s;
+}
+.show-btn{
+  background: linear-gradient(135deg,var(--lav-dk),var(--rose-dk));
+  color:#fff;
+  box-shadow: 0 4px 20px rgba(201,177,255,.35);
+}
+.show-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(201,177,255,.5);
+}
+.show-btn:active{ transform:scale(.95); }
+
+.next-card-btn{
+  background: var(--glass);
+  border: 1px solid var(--glass-b);
+  backdrop-filter: blur(10px);
+  color:var(--lav-lt);
+  box-shadow: 0 4px 16px rgba(201,177,255,.2);
+}
+.next-card-btn:hover{
+  background: rgba(201,177,255,.14);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(201,177,255,.35);
+}
+.next-card-btn:active{ transform:scale(.95); }
+
+/* All done screen */
+.cards-done{
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:1.2rem;
+  padding:3rem 1rem;
+}
+.cards-done-emoji{
+  font-size:5rem;
+  animation: pulseEmoji 2.4s ease-in-out infinite;
+}
+.cards-done h3{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  color:var(--lav-lt);
+}
+.cards-done p{
+  color:var(--muted); font-size:.95rem; font-style:italic;
+}
+

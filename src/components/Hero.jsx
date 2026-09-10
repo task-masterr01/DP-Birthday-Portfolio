@@ -19,7 +19,7 @@ export default function Hero() {
           <p className="hero-eyebrow">A Special birthday present for universe's favourite girl</p>
           {/* ✏️ REPLACE "Her Name" with your friend's actual name */}
           <h1 className="hero-name">Her Name</h1>
-          <p className="hero-sub">Happiest birthday , dear Deepanshu 🎂</p>
+          <p className="hero-sub">Happiest birthday , dear cutie pie 🎂</p>
           <div className="hero-pill">18th September 🌸</div>
           <p className="scroll-hint">↓ tap continue for a surprise ↓</p>
         </div>
