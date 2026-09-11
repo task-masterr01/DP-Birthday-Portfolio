@@ -51,7 +51,7 @@ export default async function handler(req, res) {
       return res.status(201).json({ success: true, letter: newLetter });
     } catch (error) {
       console.error('Error posting letter:', error);
-      return res.status(500).json({ error: 'Internal server error' });
+      return res.status(500).json({ error: error.message || 'Internal server error' });
     }
   } 
   
