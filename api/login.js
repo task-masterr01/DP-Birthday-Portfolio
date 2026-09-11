@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 
     if (user && Object.keys(user).length > 0) {
       // User exists, verify password
-      if (user.password !== password) {
+      if (String(user.password) !== String(password)) {
         return res.status(401).json({ error: 'Incorrect password for this name.' });
       }
       return res.status(200).json({ success: true, message: 'Login successful', hasWritten: user.hasWritten });

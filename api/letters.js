@@ -31,7 +31,7 @@ export default async function handler(req, res) {
         return res.status(401).json({ error: 'User not found. Please log in first.' });
       }
 
-      if (user.password !== password) {
+      if (String(user.password) !== String(password)) {
         return res.status(401).json({ error: 'Invalid password.' });
       }
 
