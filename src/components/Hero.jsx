@@ -1,8 +1,15 @@
+import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageTransition from './PageTransition';
 import { launchBalloons, launchConfetti } from './CanvasEffects';
-import { useEffect } from 'react';
+
+const HOLD_DURATION = 5000; // 5 seconds
 
 export default function Hero() {
+  const navigate   = useNavigate();
+  const timerRef   = useRef(null);
+  const startedRef = useRef(false);
+
   useEffect(() => {
     // fire the welcome balloons & confetti on mount
     const t = setTimeout(() => {
@@ -12,6 +19,19 @@ export default function Hero() {
     return () => clearTimeout(t);
   }, []);
 
+  const handleHoldStart = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    timerRef.current = setTimeout(() => {
+      navigate('/secret');
+    }, HOLD_DURATION);
+  };
+
+  const handleHoldEnd = () => {
+    startedRef.current = false;
+    clearTimeout(timerRef.current);
+  };
+
   return (
     <PageTransition nextPath="/cake" nextLabel="Make a Wish 🕯️">
       <section id="hero">
@@ -20,7 +40,21 @@ export default function Hero() {
           {/* ✏️ REPLACE "Her Name" with your friend's actual name */}
           <h1 className="hero-name">Her Name</h1>
           <p className="hero-sub">Happiest birthday , dear cutie pie 🎂</p>
-          <div className="hero-pill">18th September 🌸</div>
+
+          {/* Secret easter egg — hold for 5s to unlock /secret */}
+          <div
+            className="hero-pill"
+            style={{ cursor: 'default', userSelect: 'none', WebkitUserSelect: 'none' }}
+            onMouseDown={handleHoldStart}
+            onMouseUp={handleHoldEnd}
+            onMouseLeave={handleHoldEnd}
+            onTouchStart={handleHoldStart}
+            onTouchEnd={handleHoldEnd}
+            onTouchCancel={handleHoldEnd}
+          >
+            18th September 🌸
+          </div>
+
           <p className="scroll-hint">↓ tap continue for a surprise ↓</p>
         </div>
       </section>
