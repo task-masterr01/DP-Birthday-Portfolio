@@ -1,4 +1,4 @@
-﻿/* ΓöÇΓöÇ WRITE PAGE ΓÇö warm pastel world ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ΓöÇΓöÇ WRITE PAGE ΓÇö warm pastel world ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 
 /* Override body bg just on this page via a wrapper */
 .write-world {
@@ -47,7 +47,7 @@
 }
 .signin-sub {
   color: #9B85B0;
-  font-size: .9rem;
+  font-size: 1rem;
   margin-bottom: 2rem;
   line-height: 1.7;
 }
@@ -61,7 +61,7 @@
   border-radius: 999px;
   padding: .85rem 2rem;
   font-family: 'Poppins', sans-serif;
-  font-size: .95rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
@@ -83,7 +83,7 @@
   border: 1.5px solid rgba(201,177,255,.5);
   background: rgba(255,255,255,.9);
   font-family: 'Caveat', cursive;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #4A3060;
   outline: none;
   text-align: center;
@@ -99,7 +99,7 @@
   box-shadow: 0 0 0 3px rgba(244,142,177,.15);
 }
 .name-error {
-  font-size: .85rem;
+  font-size: .95rem;
   color: #F48EB1;
   margin-top: .4rem;
   text-align: center;
@@ -145,14 +145,14 @@
   line-height: 1;
 }
 .countdown-label {
-  font-size: .68rem;
+  font-size: .8rem;
   color: #B090D0;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
 .countdown-msg {
   color: #9B85B0;
-  font-size: .9rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 2rem;
 }
@@ -162,7 +162,7 @@
   border-radius: 999px;
   padding: .9rem 2.5rem;
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
   cursor: pointer;
@@ -315,7 +315,7 @@
   border: none;
   outline: none;
   font-family: 'Caveat', cursive;
-  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-size: clamp(1.4rem, 4vw, 1.6rem);
   color: #4A3060;
   line-height: 32px;
   padding: 0;
@@ -344,7 +344,7 @@
   border-bottom: 1.5px dashed rgba(201,177,255,.5);
   outline: none;
   font-family: 'Caveat', cursive;
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
   color: #7C5CBF;
   text-align: right;
   width: clamp(160px, 50%, 280px);
@@ -402,7 +402,7 @@
   color: #7C5CBF;
   margin-bottom: .8rem;
 }
-.thankyou-msg { color: #9B85B0; font-size: .92rem; line-height: 1.8; }
+.thankyou-msg { color: #9B85B0; font-size: 1.05rem; line-height: 1.8; }
 
 /* ΓöÇΓöÇ BULLETIN BOARD ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
 #board-page {
@@ -662,7 +662,7 @@
   
   /* Ensure the text sizing feels good on mobile */
   .letter-textarea, .overlay-message {
-    font-size: 1.05rem;
+    font-size: 1.4rem;
   }
   
   /* Allow the 'From' input to take full available width, but align right */
