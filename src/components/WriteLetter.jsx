@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { auth, provider, db } from '../firebase';
+import { db } from '../firebase';
 import '../letter.css';
 
 // ✏️ Replace with her actual name
@@ -10,7 +9,7 @@ const HER_NAME = 'Her Name';
 // ── Birthday countdown to Sept 18 ────────────────────
 function getCountdown() {
   const now    = new Date();
-  const target = new Date(now.getFullYear(), 8, 18); // month is 0-indexed, 8 = September
+  const target = new Date(now.getFullYear(), 8, 18);
   if (now > target) target.setFullYear(target.getFullYear() + 1);
   const diff   = target - now;
   return {
@@ -21,7 +20,6 @@ function getCountdown() {
   };
 }
 
-// ── Screens ───────────────────────────────────────────
 const SCREEN = {
   SIGNIN:    'signin',
   COUNTDOWN: 'countdown',
@@ -31,31 +29,18 @@ const SCREEN = {
 };
 
 const MAX_CHARS = 500;
-const PIN_COLOURS = ['pin-lav', 'pin-rose', 'pin-gold'];
 
 export default function WriteLetter() {
-  const [screen,   setScreen]   = useState(SCREEN.SIGNIN);
-  const [user,     setUser]     = useState(null);
-  const [envOpen,  setEnvOpen]  = useState(false);
-  const [photo,    setPhoto]    = useState(null);   // data-URL
-  const [message,  setMessage]  = useState('');
-  const [fromText, setFrom]     = useState('');
-  const [sending,  setSending]  = useState(false);
+  const [screen,    setScreen]    = useState(SCREEN.SIGNIN);
+  const [senderName, setSenderName] = useState('');
+  const [nameError,  setNameError]  = useState(false);
+  const [envOpen,   setEnvOpen]   = useState(false);
+  const [photo,     setPhoto]     = useState(null);
+  const [message,   setMessage]   = useState('');
+  const [fromText,  setFrom]      = useState('');
+  const [sending,   setSending]   = useState(false);
   const [countdown, setCountdown] = useState(getCountdown());
-  const [authLoading, setAuthLoading] = useState(true);
   const photoInputRef = useRef(null);
-
-  // Listen for login state (handles redirects properly)
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        setScreen(SCREEN.COUNTDOWN);
-      }
-      setAuthLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
 
   // Live countdown ticker
   useEffect(() => {
@@ -64,14 +49,11 @@ export default function WriteLetter() {
     return () => clearInterval(id);
   }, [screen]);
 
-  // ── Google sign-in ─────────────────────────────────
-  const handleSignIn = () => {
-    setAuthLoading(true);
-    signInWithRedirect(auth, provider).catch(e => {
-      console.error(e);
-      setAuthLoading(false);
-      alert('Sign-in failed: ' + e.message);
-    });
+  // ── Name submit ────────────────────────────────────
+  const handleNameSubmit = () => {
+    if (!senderName.trim()) { setNameError(true); return; }
+    setNameError(false);
+    setScreen(SCREEN.COUNTDOWN);
   };
 
   // ── Open envelope ──────────────────────────────────
@@ -95,9 +77,8 @@ export default function WriteLetter() {
     setSending(true);
     try {
       await addDoc(collection(db, 'letters'), {
-        uid:       user?.uid || 'anonymous',
-        name:      user?.displayName || 'A Friend',
-        photo:     photo || user?.photoURL || null,
+        name:      senderName.trim() || 'A Friend',
+        photo:     photo || null,
         message:   message.trim(),
         from:      fromText.trim(),
         createdAt: serverTimestamp(),
@@ -117,24 +98,27 @@ export default function WriteLetter() {
   return (
     <div className="write-world">
 
-      {/* ── SIGN IN ── */}
+      {/* ── NAME / SIGN IN ── */}
       {screen === SCREEN.SIGNIN && (
         <div className="signin-card">
           <div className="signin-emoji">💌</div>
           <h1 className="signin-title">A Gift for {HER_NAME}</h1>
           <p className="signin-sub">
-            Her birthday is coming. Leave her a letter she'll carry forever. 
-            Sign in so she knows it's really from you 💜
+            Her birthday is coming. Leave her a letter she'll carry forever.
+            Tell us your name so she knows it's from you 💜
           </p>
-          <button className="google-btn" onClick={handleSignIn} disabled={authLoading}>
-            {/* Google G icon */}
-            <svg viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
-              <path d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z" fill="#4285f4"/>
-              <path d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z" fill="#34a853"/>
-              <path d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z" fill="#fbbc04"/>
-              <path d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z" fill="#ea4335"/>
-            </svg>
-            {authLoading ? 'Loading...' : 'Continue with Google'}
+          <input
+            className={`name-input ${nameError ? 'name-input--error' : ''}`}
+            type="text"
+            placeholder="Your name…"
+            value={senderName}
+            maxLength={50}
+            onChange={(e) => { setSenderName(e.target.value); setNameError(false); }}
+            onKeyDown={(e) => e.key === 'Enter' && handleNameSubmit()}
+          />
+          {nameError && <p className="name-error">Please enter your name 💜</p>}
+          <button className="google-btn" onClick={handleNameSubmit}>
+            Continue ✨
           </button>
         </div>
       )}
@@ -199,7 +183,7 @@ export default function WriteLetter() {
                 />
               </div>
 
-              {/* Letter text — flows right of photo, then full width below it */}
+              {/* Letter text — flows right of photo, then full width below */}
               <div
                 className="letter-textarea"
                 contentEditable
@@ -209,7 +193,6 @@ export default function WriteLetter() {
                   const text = e.currentTarget.innerText;
                   if (text.length > MAX_CHARS) {
                     e.currentTarget.innerText = text.slice(0, MAX_CHARS);
-                    // move cursor to end
                     const range = document.createRange();
                     range.selectNodeContents(e.currentTarget);
                     range.collapse(false);

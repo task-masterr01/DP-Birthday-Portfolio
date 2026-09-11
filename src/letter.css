@@ -56,25 +56,54 @@
   align-items: center;
   justify-content: center;
   gap: .75rem;
-  background: #fff;
-  border: 1.5px solid rgba(201,177,255,0.5);
+  background: linear-gradient(135deg, #C9B1FF, #FFB6D9);
+  border: none;
   border-radius: 999px;
   padding: .85rem 2rem;
   font-family: 'Poppins', sans-serif;
   font-size: .95rem;
   font-weight: 600;
-  color: #5A3E8A;
+  color: #fff;
   cursor: pointer;
   width: 100%;
-  transition: transform .2s, box-shadow .2s, border-color .2s;
-  box-shadow: 0 4px 16px rgba(180,140,220,.2);
+  margin-top: 1rem;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(180,140,220,.3);
 }
 .google-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(180,140,220,.35);
-  border-color: rgba(201,177,255,0.8);
+  box-shadow: 0 8px 28px rgba(180,140,220,.5);
 }
-.google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* Name input on sign-in screen */
+.name-input {
+  width: 100%;
+  padding: .85rem 1.2rem;
+  border-radius: 12px;
+  border: 1.5px solid rgba(201,177,255,.5);
+  background: rgba(255,255,255,.9);
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: #4A3060;
+  outline: none;
+  text-align: center;
+  transition: border-color .2s, box-shadow .2s;
+  box-sizing: border-box;
+}
+.name-input:focus {
+  border-color: #C9B1FF;
+  box-shadow: 0 0 0 3px rgba(201,177,255,.2);
+}
+.name-input--error {
+  border-color: #F48EB1;
+  box-shadow: 0 0 0 3px rgba(244,142,177,.15);
+}
+.name-error {
+  font-size: .85rem;
+  color: #F48EB1;
+  margin-top: .4rem;
+  text-align: center;
+}
 
 /* ── COUNTDOWN PAGE ──────────────────────────────────── */
 .countdown-card {
