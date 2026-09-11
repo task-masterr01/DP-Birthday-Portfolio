@@ -9,14 +9,9 @@ export default async function handler(req, res) {
 
   let kv;
   try {
-    const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-    const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+    const url = "https://rapid-cub-172018.upstash.io";
+    const token = "gQAAAAAAAp_yAAIgcDJmZTMwMWE2ZDU4NWM0OWE5OWNhYjllNDZmMTA3Y2NkZQ";
     
-    if (!url || !token) {
-      const keys = Object.keys(process.env).filter(k => k.includes('UPSTASH') || k.includes('KV') || k.includes('REDIS'));
-      return res.status(500).json({ error: 'Database not linked. Available keys: ' + keys.join(', ') });
-    }
-
     kv = createClient({ url, token });
   } catch (err) {
     return res.status(500).json({ error: 'Failed to init db: ' + err.message });
