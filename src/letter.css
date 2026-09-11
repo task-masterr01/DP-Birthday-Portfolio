@@ -279,22 +279,29 @@
 }
 .letter-photo-hint { font-size: .68rem; color: #C0A0D8; text-align: center; margin-top: .4rem; }
 
-/* The textarea itself */
+/* The contenteditable letter body — flows naturally around the float */
 .letter-textarea {
-  width: 100%;
-  min-height: 360px;
+  min-height: 320px;
   background: transparent;
   border: none;
   outline: none;
-  resize: none;
   font-family: 'Caveat', cursive;
   font-size: clamp(1.05rem, 2.5vw, 1.2rem);
   color: #4A3060;
-  line-height: 32px; /* match ruled lines */
+  line-height: 32px;
   padding: 0;
-  overflow: hidden;
+  display: block;
+  word-break: break-word;
+  white-space: pre-wrap;
+  cursor: text;
 }
-.letter-textarea::placeholder { color: rgba(155,121,232,.4); }
+/* Placeholder via data attribute */
+.letter-textarea:empty::before {
+  content: attr(data-placeholder);
+  color: rgba(155,121,232,.4);
+  pointer-events: none;
+  font-style: italic;
+}
 
 /* From field */
 .letter-from-wrap {

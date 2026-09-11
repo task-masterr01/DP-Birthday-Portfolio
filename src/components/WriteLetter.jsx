@@ -187,15 +187,27 @@ export default function WriteLetter() {
                 />
               </div>
 
-              {/* Letter text — wraps right of photo, then full width */}
-              <textarea
+              {/* Letter text — flows right of photo, then full width below it */}
+              <div
                 className="letter-textarea"
-                placeholder={`Dear ${HER_NAME},\n\nWrite your heart out here…`}
-                maxLength={MAX_CHARS}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                rows={12}
+                contentEditable
+                suppressContentEditableWarning
+                data-placeholder={`Dear ${HER_NAME},\n\nWrite your heart out here…`}
+                onInput={(e) => {
+                  const text = e.currentTarget.innerText;
+                  if (text.length > MAX_CHARS) {
+                    e.currentTarget.innerText = text.slice(0, MAX_CHARS);
+                    // move cursor to end
+                    const range = document.createRange();
+                    range.selectNodeContents(e.currentTarget);
+                    range.collapse(false);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+                  }
+                  setMessage(e.currentTarget.innerText.slice(0, MAX_CHARS));
+                }}
               />
+              <div style={{ clear: 'both' }} />
 
               {/* From — bottom right */}
               <div className="letter-from-wrap">
