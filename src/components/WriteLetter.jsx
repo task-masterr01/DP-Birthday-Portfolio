@@ -70,7 +70,7 @@ export default function WriteLetter() {
     signInWithRedirect(auth, provider).catch(e => {
       console.error(e);
       setAuthLoading(false);
-      alert('Sign-in failed. Please try again.');
+      alert('Sign-in failed: ' + e.message);
     });
   };
 
