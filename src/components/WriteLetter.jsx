@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, provider, db } from '../firebase';
 import '../letter.css';
@@ -59,17 +59,12 @@ export default function WriteLetter() {
     return () => clearInterval(id);
   }, [screen]);
 
-  // ── Google sign-in (popup — preserves user gesture for mobile) ──
+  // ── Google sign-in (redirect — avoids mobile popup blockers) ──
   const handleSignIn = () => {
-    signInWithPopup(auth, provider)
-      .then(result => {
-        setUser(result.user);
-        setScreen(SCREEN.COUNTDOWN);
-      })
-      .catch(e => {
-        console.error(e);
-        alert('Could not sign in: ' + e.code);
-      });
+    signInWithRedirect(auth, provider).catch(e => {
+      console.error(e);
+      alert('Could not redirect to sign in: ' + e.code);
+    });
   };
 
   // ── Open envelope ──────────────────────────────────
