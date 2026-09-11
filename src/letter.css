@@ -240,7 +240,7 @@
       rgba(201,177,255,.25) 31px,
       rgba(201,177,255,.25) 32px
     );
-  background-position: 0 3rem; /* offset so first line clears the Dear area */
+  background-position: 0 0; /* Align perfectly with 2rem (32px) top padding */
 }
 
 /* Photo float — top left, text wraps around */
@@ -516,7 +516,7 @@
   max-width: 600px;
   max-height: 85vh;
   overflow-y: auto;
-  padding: 2.5rem 2.5rem 2rem;
+  padding: 2rem 2.5rem 2rem; /* 2rem top = 32px grid alignment */
   position: relative;
   background-image:
     repeating-linear-gradient(
@@ -525,7 +525,7 @@
       rgba(201,177,255,.25) 31px,
       rgba(201,177,255,.25) 32px
     );
-  background-position: 0 3rem;
+  background-position: 0 0;
   animation: scaleIn .3s cubic-bezier(.4,0,.2,1);
 }
 .overlay-close {
@@ -572,6 +572,7 @@
   color: #4A3060;
   line-height: 32px;
   white-space: pre-wrap;
+  margin: 0; /* Essential to keep the 32px grid aligned */
 }
 .overlay-from {
   clear: both;
