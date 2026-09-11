@@ -44,7 +44,13 @@ export default function Hero() {
           {/* Secret easter egg — hold for 5s to unlock /secret */}
           <div
             className="hero-pill"
-            style={{ cursor: 'default', userSelect: 'none', WebkitUserSelect: 'none' }}
+            style={{ 
+              cursor: 'default', 
+              userSelect: 'none', 
+              WebkitUserSelect: 'none',
+              WebkitTouchCallout: 'none'
+            }}
+            onContextMenu={(e) => e.preventDefault()}
             onMouseDown={handleHoldStart}
             onMouseUp={handleHoldEnd}
             onMouseLeave={handleHoldEnd}
