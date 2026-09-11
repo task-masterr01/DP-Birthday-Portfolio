@@ -659,8 +659,8 @@
   .pin-card { width: clamp(130px, 44%, 180px); }
   
   /* Must preserve 2rem top padding for the 32px background line grid to align perfectly */
-  .letter-overlay-paper { padding: 2rem 1.2rem 1.5rem; min-height: 65dvh; }
-  .letter-paper { padding: 2rem 1.2rem 1.5rem; min-height: 65dvh; }
+  .letter-overlay-paper { padding: 2rem 1.2rem 1.5rem; min-height: 65vh; min-height: 65dvh; width: 95%; max-width: none; }
+  .letter-paper { padding: 2rem 1.2rem 1.5rem; min-height: 65vh; min-height: 65dvh; width: 95%; max-width: none; }
   
   /* Shrink the floated photo slightly so text has more room to wrap on narrow screens */
   .letter-photo-wrap, .overlay-photo, .overlay-photo-placeholder {
@@ -687,7 +687,10 @@
 
   .signin-card, .countdown-card, .thankyou-card {
     padding: 2.5rem 1.5rem;
+    min-height: 70vh;
     min-height: 70dvh;
+    width: 95%;
+    max-width: none;
     justify-content: center;
   }
   
