@@ -50,7 +50,7 @@ export default function LetterBoard() {
           return (
             <div
               key={letter.id}
-              className="letter-card"
+              className="pin-card"
               style={{ transform: `rotate(${rotation}deg)` }}
               onClick={() => setSelected(letter)}
             >
