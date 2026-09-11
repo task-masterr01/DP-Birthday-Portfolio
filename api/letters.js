@@ -1,11 +1,23 @@
 import { createClient } from '@vercel/kv';
 
-const kv = createClient({
-  url: process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL,
-  token: process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN,
-});
+// KV client is initialized inside handler
 
 export default async function handler(req, res) {
+  let kv;
+  try {
+    const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+    const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+    
+    if (!url || !token) {
+      const keys = Object.keys(process.env).filter(k => k.includes('UPSTASH') || k.includes('KV') || k.includes('REDIS'));
+      return res.status(500).json({ error: 'Database not linked. Available keys: ' + keys.join(', ') });
+    }
+
+    kv = createClient({ url, token });
+  } catch (err) {
+    return res.status(500).json({ error: 'Failed to init db: ' + err.message });
+  }
+
   if (req.method === 'POST') {
     try {
       const { name, password, photo, message, from } = req.body;
