@@ -12,7 +12,7 @@ const firebaseConfig = {
   measurementId: "G-QBJP3T8FMH"
 };
 
-const app      = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 export const auth     = getAuth(app);
 export const provider = new GoogleAuthProvider();
-export const db       = getFirestore(app);
+export const db       = getFirestore(app, 'birthday-db');
