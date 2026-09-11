@@ -674,18 +674,37 @@
   
   /* Ensure the text sizing feels good on mobile */
   .letter-textarea, .overlay-message {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    line-height: 32px;
   }
   
   /* Allow the 'From' input to take full available width, but align right */
   .letter-from-input {
     width: 100%;
-    max-width: 220px;
+    max-width: 260px;
+    font-size: 1.5rem;
   }
 
   .signin-card, .countdown-card, .thankyou-card {
-    padding: 3rem 1.2rem;
-    min-height: 65dvh;
+    padding: 2.5rem 1.5rem;
+    min-height: 70dvh;
+    justify-content: center;
+  }
+  
+  /* MASSIVE BUMP FOR ALL MOBILE COMPONENTS */
+  .signin-emoji, .thankyou-emoji { font-size: 5rem; }
+  .signin-title, .countdown-title, .thankyou-title { font-size: 2.2rem; }
+  .signin-sub, .countdown-msg, .thankyou-msg { font-size: 1.15rem; line-height: 1.6; }
+  .name-input { font-size: 1.8rem; padding: 1rem 1.5rem; }
+  .google-btn, .write-btn, .letter-submit-btn { font-size: 1.25rem; padding: 1rem 2rem; }
+  .countdown-num { font-size: 3rem; }
+  .countdown-label { font-size: 1rem; }
+  .countdown-dial { padding: 1rem 1.5rem; }
+  
+  /* Make the envelope significantly larger on mobile */
+  .envelope-wrap {
+    width: 85vw;
+    height: 60vw;
   }
 }
 
