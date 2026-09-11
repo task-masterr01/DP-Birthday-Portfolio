@@ -1,17 +1,14 @@
-// ✏️ PASTE YOUR FIREBASE CONFIG HERE after creating your project
-// Leave as empty strings for now — UI will still work, Firebase calls will be wired in next
-
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey:            "",
-  authDomain:        "",
-  projectId:         "",
-  storageBucket:     "",
-  messagingSenderId: "",
-  appId:             "",
+  apiKey: "AIzaSyAm4ATK7pAhuUAgcHzm_Trf30sYbvFLwVc",
+  authDomain: "birthday-portfolio.firebaseapp.com",
+  projectId: "birthday-portfolio",
+  storageBucket: "birthday-portfolio.firebasestorage.app",
+  messagingSenderId: "968136223616",
+  appId: "1:968136223616:web:7a2f75b322008d56fd2f65",
 };
 
 const app      = initializeApp(firebaseConfig);
