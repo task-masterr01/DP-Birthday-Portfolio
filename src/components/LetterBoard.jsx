@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
+// removed firebase imports
 import '../letter.css';
 
 // ✏️ Replace with her actual name
@@ -16,12 +15,22 @@ export default function LetterBoard() {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    const q = query(collection(db, 'letters'), orderBy('createdAt', 'asc'));
-    const unsub = onSnapshot(q, (snap) => {
-      setLetters(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-      setLoading(false);
-    });
-    return unsub;
+    fetch('/api/letters')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          // Sort ascending by createdAt to mimic Firebase orderBy
+          const sorted = data.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+          setLetters(sorted);
+        } else {
+          console.error('Failed to fetch letters:', data);
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching letters:', err);
+        setLoading(false);
+      });
   }, []);
 
   return (

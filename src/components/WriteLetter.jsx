@@ -1,7 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import { signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { auth, provider, db } from '../firebase';
 import '../letter.css';
 
 // ✏️ Replace with her actual name
@@ -27,14 +24,17 @@ const SCREEN = {
   ENVELOPE:  'envelope',
   LETTER:    'letter',
   THANKYOU:  'thankyou',
+  ALREADY_WRITTEN: 'already_written'
 };
 
 const MAX_CHARS = 500;
 
 export default function WriteLetter() {
   const [screen,    setScreen]    = useState(SCREEN.SIGNIN);
-  const [user,      setUser]      = useState(null);
-  const [authReady, setAuthReady] = useState(false);
+  const [senderName, setSenderName] = useState('');
+  const [password,  setPassword]  = useState('');
+  const [authError, setAuthError] = useState('');
+  const [authLoading, setAuthLoading] = useState(false);
   const [envOpen,   setEnvOpen]   = useState(false);
   const [photo,     setPhoto]     = useState(null);
   const [message,   setMessage]   = useState('');
@@ -43,15 +43,6 @@ export default function WriteLetter() {
   const [countdown, setCountdown] = useState(getCountdown());
   const photoInputRef = useRef(null);
 
-  // Restore session if user already signed in previously
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (u) => {
-      if (u) { setUser(u); setScreen(SCREEN.COUNTDOWN); }
-      setAuthReady(true);
-    });
-    return unsub;
-  }, []);
-
   // Live countdown ticker
   useEffect(() => {
     if (screen !== SCREEN.COUNTDOWN) return;
@@ -59,12 +50,42 @@ export default function WriteLetter() {
     return () => clearInterval(id);
   }, [screen]);
 
-  // ── Google sign-in (redirect — avoids mobile popup blockers) ──
-  const handleSignIn = () => {
-    signInWithRedirect(auth, provider).catch(e => {
+  // ── Auth submit ────────────────────────────────────
+  const handleAuthSubmit = async () => {
+    if (!senderName.trim() || !password.trim()) { 
+      setAuthError('Please enter both name and password.'); 
+      return; 
+    }
+    
+    setAuthLoading(true);
+    setAuthError('');
+
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: senderName, password: password })
+      });
+      
+      const data = await res.json();
+      
+      if (!res.ok) {
+        setAuthError(data.error || 'Login failed.');
+        setAuthLoading(false);
+        return;
+      }
+
+      if (data.hasWritten) {
+        setScreen(SCREEN.ALREADY_WRITTEN);
+      } else {
+        setScreen(SCREEN.COUNTDOWN);
+      }
+    } catch (e) {
       console.error(e);
-      alert('Could not redirect to sign in: ' + e.code);
-    });
+      setAuthError('Network error. Please try again.');
+    } finally {
+      setAuthLoading(false);
+    }
   };
 
   // ── Open envelope ──────────────────────────────────
@@ -87,18 +108,28 @@ export default function WriteLetter() {
     if (!message.trim()) return;
     setSending(true);
     try {
-      await addDoc(collection(db, 'letters'), {
-        uid:       user?.uid || 'anonymous',
-        name:      user?.displayName || 'A Friend',
-        photo:     photo || user?.photoURL || null,
-        message:   message.trim(),
-        from:      fromText.trim(),
-        createdAt: serverTimestamp(),
+      const res = await fetch('/api/letters', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: senderName,
+          password: password,
+          photo: photo,
+          message: message,
+          from: fromText
+        })
       });
-      setScreen(SCREEN.THANKYOU);
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || 'Something went wrong.');
+      } else {
+        setScreen(SCREEN.THANKYOU);
+      }
     } catch (e) {
       console.error(e);
-      alert('Something went wrong. Please try again.');
+      alert('Network error. Please try again.');
     } finally {
       setSending(false);
     }
@@ -107,39 +138,54 @@ export default function WriteLetter() {
   const pad = (n) => String(n).padStart(2, '0');
   const charsLeft = MAX_CHARS - message.length;
 
-  // Don't render until Firebase auth state is resolved
-  if (!authReady) {
-    return (
-      <div className="write-world">
-        <div className="signin-card">
-          <div className="signin-emoji">🌸</div>
-          <p className="signin-sub">Loading…</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="write-world">
 
-      {/* ── SIGN IN ── */}
+      {/* ── NAME / PASSWORD ── */}
       {screen === SCREEN.SIGNIN && (
         <div className="signin-card">
           <div className="signin-emoji">💌</div>
           <h1 className="signin-title">A Gift for {HER_NAME}</h1>
           <p className="signin-sub">
-            Her birthday is coming. Leave her a letter she'll carry forever.
-            Sign in so she knows it's really from you 💜
+            Leave her a letter she'll carry forever.
+            Enter your name and a password. If it's your first time, it creates an account!
           </p>
-          <button className="google-btn" onClick={handleSignIn}>
-            <svg viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
-              <path d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z" fill="#4285f4"/>
-              <path d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z" fill="#34a853"/>
-              <path d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z" fill="#fbbc04"/>
-              <path d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z" fill="#ea4335"/>
-            </svg>
-            Continue with Google
+          <div style={{display: 'flex', flexDirection: 'column', gap: '0.8rem', width: '100%'}}>
+            <input
+              className="name-input"
+              type="text"
+              placeholder="Your name…"
+              value={senderName}
+              maxLength={50}
+              onChange={(e) => { setSenderName(e.target.value); setAuthError(''); }}
+              onKeyDown={(e) => e.key === 'Enter' && document.getElementById('pass-input').focus()}
+            />
+            <input
+              id="pass-input"
+              className="name-input"
+              type="password"
+              placeholder="Choose a password…"
+              value={password}
+              maxLength={50}
+              onChange={(e) => { setPassword(e.target.value); setAuthError(''); }}
+              onKeyDown={(e) => e.key === 'Enter' && handleAuthSubmit()}
+            />
+          </div>
+          {authError && <p className="name-error">{authError}</p>}
+          <button className="google-btn" onClick={handleAuthSubmit} disabled={authLoading}>
+            {authLoading ? 'Verifying…' : 'Continue ✨'}
           </button>
+        </div>
+      )}
+
+      {/* ── ALREADY WRITTEN ── */}
+      {screen === SCREEN.ALREADY_WRITTEN && (
+        <div className="thankyou-card">
+          <div className="thankyou-emoji">🌸</div>
+          <h2 className="thankyou-title">You've already written a letter!</h2>
+          <p className="thankyou-msg">
+            Thank you so much! Your letter is safely stored and will be revealed to {HER_NAME} on September 18th 💜
+          </p>
         </div>
       )}
 
@@ -182,6 +228,7 @@ export default function WriteLetter() {
         <div className="letter-scene">
           <div style={{ width: '100%', maxWidth: 640 }}>
             <div className="letter-paper">
+              {/* Photo — floated left */}
               <div className="letter-photo-wrap">
                 <div
                   className="letter-photo-box"
@@ -202,6 +249,7 @@ export default function WriteLetter() {
                 />
               </div>
 
+              {/* Letter text — flows right of photo, then full width below */}
               <div
                 className="letter-textarea"
                 contentEditable
@@ -222,6 +270,7 @@ export default function WriteLetter() {
               />
               <div style={{ clear: 'both' }} />
 
+              {/* From — bottom right */}
               <div className="letter-from-wrap">
                 <input
                   className="letter-from-input"
