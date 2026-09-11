@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, provider, db } from '../firebase';
 import '../letter.css';
@@ -42,7 +42,20 @@ export default function WriteLetter() {
   const [fromText, setFrom]     = useState('');
   const [sending,  setSending]  = useState(false);
   const [countdown, setCountdown] = useState(getCountdown());
+  const [authLoading, setAuthLoading] = useState(true);
   const photoInputRef = useRef(null);
+
+  // Listen for login state (handles redirects properly)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        setScreen(SCREEN.COUNTDOWN);
+      }
+      setAuthLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
 
   // Live countdown ticker
   useEffect(() => {
@@ -52,14 +65,13 @@ export default function WriteLetter() {
   }, [screen]);
 
   // ── Google sign-in ─────────────────────────────────
-  const handleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      setUser(result.user);
-      setScreen(SCREEN.COUNTDOWN);
-    } catch (e) {
+  const handleSignIn = () => {
+    setAuthLoading(true);
+    signInWithRedirect(auth, provider).catch(e => {
       console.error(e);
-    }
+      setAuthLoading(false);
+      alert('Sign-in failed. Please try again.');
+    });
   };
 
   // ── Open envelope ──────────────────────────────────
@@ -114,7 +126,7 @@ export default function WriteLetter() {
             Her birthday is coming. Leave her a letter she'll carry forever. 
             Sign in so she knows it's really from you 💜
           </p>
-          <button className="google-btn" onClick={handleSignIn}>
+          <button className="google-btn" onClick={handleSignIn} disabled={authLoading}>
             {/* Google G icon */}
             <svg viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
               <path d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z" fill="#4285f4"/>
@@ -122,7 +134,7 @@ export default function WriteLetter() {
               <path d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z" fill="#fbbc04"/>
               <path d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z" fill="#ea4335"/>
             </svg>
-            Continue with Google
+            {authLoading ? 'Loading...' : 'Continue with Google'}
           </button>
         </div>
       )}
