@@ -27,7 +27,7 @@ const SCREEN = {
   ALREADY_WRITTEN: 'already_written'
 };
 
-const MAX_CHARS = 500;
+const MAX_CHARS = 1200;
 
 export default function WriteLetter() {
   const [screen,    setScreen]    = useState(SCREEN.SIGNIN);
