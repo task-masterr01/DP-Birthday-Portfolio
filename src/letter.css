@@ -555,10 +555,12 @@
   background: #FFFDF8;
   border-radius: 16px;
   box-shadow: 0 24px 80px rgba(0,0,0,.5);
-  width: 100%;
-  max-width: 600px;
+  width: 90%;
+  max-width: 420px;
+  min-height: 550px;
   max-height: 85vh;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 2rem 2.5rem 2rem; /* 2rem top = 32px grid alignment */
   position: relative;
   background-image:
@@ -615,6 +617,8 @@
   color: #4A3060;
   line-height: 32px;
   white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
   margin: 0; /* Essential to keep the 32px grid aligned */
 }
 .overlay-from {
