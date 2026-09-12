@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageTransition from './PageTransition';
 import { launchConfetti, showToast } from './CanvasEffects';
 
@@ -36,6 +37,7 @@ export default function Cards() {
   const [index,   setIndex]   = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done,    setDone]    = useState(false);
+  const navigate = useNavigate();
 
   const card   = CARDS[index];
   const isLast = index === CARDS.length - 1;
@@ -68,16 +70,23 @@ export default function Cards() {
           <p className="section-sub reveal">Each card holds a little piece of my heart — flip to read it</p>
 
           {done ? (
-            <div className="cards-done reveal">
+            <div className="cards-done card-enter">
               <div className="cards-done-emoji">🌸</div>
               <h3>That's all the cards…</h3>
               <p>Hope they made you smile even a little 💜</p>
+              <button 
+                className="card-btn" 
+                style={{ marginTop: '2rem' }} 
+                onClick={() => navigate('/letters')}
+              >
+                Read Letters 💌 →
+              </button>
             </div>
           ) : (
             /* key={index} forces React to fully remount this block
                every time the index changes → fresh entrance animation,
                zero batching / timing issues */
-            <div key={index} className="card-stage reveal card-enter">
+            <div key={index} className="card-stage card-enter">
 
               {/* Floating hint label */}
               <div className="card-category-label">

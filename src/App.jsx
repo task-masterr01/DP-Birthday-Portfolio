@@ -8,6 +8,7 @@ import Message from './components/Message';
 import Secret from './components/Secret';
 import WriteLetter from './components/WriteLetter';
 import LetterBoard from './components/LetterBoard';
+import Cards from './components/Cards';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Hero />} />
         <Route path="/cake" element={<Cake />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/cards" element={<Cards />} />
         
         <Route path="/message" element={<Message />} />
         <Route path="/secret" element={<Secret />} />
