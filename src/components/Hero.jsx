@@ -38,7 +38,7 @@ export default function Hero() {
         <div className="hero-inner">
           <p className="hero-eyebrow">A Special birthday present for universe's favourite girl</p>
           {/* ✏️ REPLACE "Her Name" with your friend's actual name */}
-          <h1 className="hero-name">Her Name</h1>
+          <h1 className="hero-name">Deepanshu Poswal</h1>
           <p className="hero-sub">Happiest birthday , dear cutie pie 🎂</p>
 
           {/* Secret easter egg — hold for 5s to unlock /secret */}

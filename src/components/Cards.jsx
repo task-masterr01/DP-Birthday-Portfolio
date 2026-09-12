@@ -8,12 +8,12 @@ const CARDS = [
   {
     category: 'A Little Compliment 💜',
     emoji: '💜',
-    message: 'You have this rare quality — you make people feel like they matter, every single time. The way you listen, the way you care, the way you show up without being asked. That is not common. That is you.',
+    message: 'They say men are the strongest, but they clearly haven\'t met miss. Deepnashu -- you are someone with the kindest heart, the purest intentions , the kindest soul ,the ultimate definition of a green flag, your presence feels like a blessing ',
   },
   {
     category: 'A Shayari 🌸',
     emoji: '🌸',
-    message: 'तेरी हँसी में जो रौशनी है,\nवो किसी दिये से कम नहीं।\nतू जहाँ भी जाए, महफ़िल सजती है —\nयूँ ही नहीं, तू ख़ास है यहाँ।',
+    message: 'Gulab se gore gaal rakhti hai .\nKhayalo mai gum karne layak julfo ke jaal rakhti hai . \t Mann ko baichain rakhti hai dil ko behal rakhti hai\n Chehre pe uske kudrati noor bin makeup bhi bawal lagti hai  .',
   },
   {
     category: "Something I'm Grateful For 🙏",
@@ -23,13 +23,13 @@ const CARDS = [
   {
     category: 'A Wish for You ⭐',
     emoji: '⭐',
-    message: 'I wish you a year that feels like your favourite song on repeat — the kind that makes everything feel okay. I wish you peace, laughter, and all the little things that make your eyes light up.',
+    message: 'May your life be filled with the happiest of moments. \nMay you conquer all the hidden battles within you, \nand may your success shine so bright that it blinds all evil eyes  ',
   },
   {
     category: 'From the Heart 💌',
     emoji: '💌',
     // ✏️ REPLACE with your own private message
-    message: '[Write something personal here — an inside memory, a feeling you never said out loud, or just the simplest truth. This card is entirely yours to fill.]',
+    message: 'May your Kanha bless you with all the happiness in the world. \nI truly wish to see you reach such incredible heights that not even the echo of my shouting and cheering could ever reach you. ',
   },
 ];
 

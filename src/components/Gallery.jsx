@@ -12,7 +12,7 @@ export default function Gallery() {
       <section id="gallery-section">
         <div className="wrap">
           <div className="divider reveal"></div>
-          <h2 className="section-title reveal">Our Beautiful Moments 📸</h2>
+          <h2 className="section-title reveal">Beautiful Moments 📸</h2>
           <p className="section-sub reveal">Every picture tells a story worth a thousand smiles…</p>
           <div className="gallery-grid">
             <div className="photo-card reveal" style={{ '--i': 1, '--rot': '-4deg' }}>
