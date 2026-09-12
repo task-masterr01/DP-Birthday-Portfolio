@@ -43,6 +43,13 @@ export default function WriteLetter() {
   const [countdown, setCountdown] = useState(getCountdown());
   const photoInputRef = useRef(null);
 
+  // Check if this device has already submitted a letter
+  useEffect(() => {
+    if (localStorage.getItem('birthday_letter_submitted') === 'true') {
+      setScreen(SCREEN.ALREADY_WRITTEN);
+    }
+  }, []);
+
   // Live countdown ticker
   useEffect(() => {
     if (screen !== SCREEN.COUNTDOWN) return;
@@ -125,6 +132,7 @@ export default function WriteLetter() {
       if (!res.ok) {
         alert(data.error || 'Something went wrong.');
       } else {
+        localStorage.setItem('birthday_letter_submitted', 'true');
         setScreen(SCREEN.THANKYOU);
       }
     } catch (e) {
