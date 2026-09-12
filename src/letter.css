@@ -472,7 +472,8 @@
 
 /* Individual pinned letter card */
 .pin-card {
-  background: linear-gradient(-58deg , #C0A0D8 , #4A3060);
+  
+  background: linear-gradient(-58deg , #c5d4a9 , #9bd9c4);
   border-radius: 8px;
   padding: 1rem 1rem .8rem;
   width: clamp(150px, 28%, 210px);
@@ -514,7 +515,7 @@
 .card-photo-placeholder {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f0e8ff, #ffe8f4);
+  background: linear-gradient(135deg, #c4becd, #ffcce6);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.2rem;
   margin-bottom: .5rem;
