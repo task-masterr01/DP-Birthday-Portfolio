@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import '../letter.css';
 
 // ✏️ Replace with her actual name
-const HER_NAME = 'Her Name';
+const HER_NAME = 'miss Deepanshu';
 
 // ── Birthday countdown to Sept 18 ────────────────────
 function getCountdown() {
@@ -244,7 +244,7 @@ export default function WriteLetter() {
                 >
                   {photo
                     ? <img src={photo} alt="your photo" />
-                    : <span>📷<br />Add a<br />photo</span>
+                    : <span>📷<br />Add a<br />private moment</span>
                   }
                 </div>
                 <p className="letter-photo-hint">tap to upload</p>

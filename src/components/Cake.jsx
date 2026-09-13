@@ -22,8 +22,6 @@ export default function Cake() {
 
   return (
     <PageTransition nextPath="/gallery" nextLabel="See Our Moments 📸">
-      {/* Native audio tag has better chances of autoplaying when navigating via React Router */}
-      <audio autoPlay loop src="/birthday-piano.mp3" />
       <section id="cake-section">
         <div className="wrap">
           <div className="divider reveal"></div>

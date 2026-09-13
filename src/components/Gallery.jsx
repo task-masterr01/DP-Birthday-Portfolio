@@ -19,36 +19,30 @@ export default function Gallery() {
           <div className="gallery-grid">
             <div className="photo-card reveal" style={{ '--i': 1, '--rot': '-4deg' }}>
               <img src={img1} alt="Memory 1" loading="lazy" />
-              <div className="photo-caption">A memory to cherish forever 🌸</div>
+              <div className="photo-caption">Effortless elegance in every single frame 🌸🌸</div>
             </div>
             <div className="photo-card reveal" style={{ '--i': 2, '--rot': '3deg' }}>
               <img src={img2} alt="Memory 2" loading="lazy" />
-              <div className="photo-caption">Some friendships are written in the stars 🌟</div>
+              <div className="photo-caption">A living goddess in every sense of the word 🌟🌟</div>
             </div>
             <div className="photo-card reveal" style={{ '--i': 3, '--rot': '-2deg' }}>
               <img src={img3} alt="Memory 3" loading="lazy" />
-              <div className="photo-caption">Every laugh, every smile, every tear — shared 🌺</div>
+              <div className="photo-caption">She doesn't even have to try; her charm just naturally steals the show 🌺🌺</div>
             </div>
             <div className="photo-card reveal" style={{ '--i': 4, '--rot': '5deg' }}>
               <img src={img4} alt="Memory 4" loading="lazy" />
-              <div className="photo-caption">Growing up together is the greatest gift 💕</div>
+              <div className="photo-caption">When you're this charming, all the nakhre are fully justified 💕💕</div>
             </div>
-            <div className="photo-card reveal" style={{ '--i': 5, '--rot': '-5deg' }}>
-              <img src={img5} alt="Memory 5" loading="lazy" />
-              <div className="photo-caption">To many more unforgettable memories! 🥳</div>
-            </div>
+            
             <div className="photo-card reveal" style={{ '--i': 6, '--rot': '2deg' }}>
               <img src={img6} alt="Memory 6" loading="lazy" />
-              <div className="photo-caption">The best moments happen when you least expect them 💜</div>
+              <div className="photo-caption">The ultimate standard of what a perfect daughter looks like 💜💜</div>
             </div>
             <div className="photo-card reveal" style={{ '--i': 7, '--rot': '-3deg' }}>
               <img src={img7} alt="Memory 7" loading="lazy" />
-              <div className="photo-caption">Here's to you and all your beautiful dreams ✨</div>
+              <div className="photo-caption">The kind of smile that effortlessly melts  heart ✨✨</div>
             </div>
-            <div className="photo-card reveal" style={{ '--i': 8, '--rot': '4deg' }}>
-              <img src={img8} alt="Memory 8" loading="lazy" />
-              <div className="photo-caption">And to all the new memories yet to come 💖</div>
-            </div>
+            
           </div>
         </div>
       </section>
