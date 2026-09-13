@@ -13,12 +13,18 @@ export default function Message() {
             <div className="letter-dear">Dear Deepanshu ,</div>
             <div className="letter-body">
               <p>
-                It rarely happens that someone comes into your life whose presence genuinely feels like a blessing. You are one of those rare people, and I thank God every day for your existence.
+                It rarely happens that someone comes into your life whose presence genuinely
+                 feels like a blessing. You are one of those rare people, and I thank God
+                  every day for your existence.
               </p>
               <p>
                 I wish the universe grants everything your heart quietly wishes for. <br />
                 I hope you get more of the moments that make you laugh until your stomach hurts, 
                 and more of the places that make you feel truly alive.
+              </p>
+              <p>
+                May Kanha always bless you with boundless love, good fortune, and unwavering courage. <br />
+                I pray He protects your peace, naturally removing anyone or anything that brings negativity or tries to dim your light.
               </p>
               <p>
                 Happiest Birthday, beautiful. Live your life to the fullest, because you will never be this young again. This exact moment is truly yours—whatever the past was, whatever the future will be, all you have is this beautiful present. 🌸
