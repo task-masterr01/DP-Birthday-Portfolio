@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import '../letter.css';
 
 // ✏️ Replace with her actual name
-const HER_NAME = 'Her Name';
+const HER_NAME = 'miss Deepanshu';
 
 const PIN_TYPES = ['pin-lav', 'pin-rose', 'pin-gold'];
 // Slight random rotations for the pinned cards

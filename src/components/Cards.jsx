@@ -13,7 +13,7 @@ const CARDS = [
   {
     category: 'A Shayari 🌸',
     emoji: '🌸',
-    message: 'Gulab se gore gaal rakhti hai .\nKhayalo mai gum karne layak julfo ke jaal rakhti hai . \t Mann ko baichain rakhti hai dil ko behal rakhti hai\n Chehre pe uske kudrati noor bin makeup bhi bawal lagti hai  .',
+    message: 'Gulab se gore gaal rakhti hai .\nKhayalo mai gum karne layak julfo ke jaal rakhti hai . \t Mann ko baichain rakhti hai dil ko behal rakhti hai\n Chehre pe aapke kudrati noor bin makeup bhi bawal lagti hai  .',
   },
   {
     category: "Something I'm Grateful For 🙏",
