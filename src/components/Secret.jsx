@@ -113,15 +113,18 @@ export default function Secret() {
             style={unlocked ? { display: 'block', opacity: 1, transform: 'none' } : {}}
           >
             <div className="secret-card">
-              <h2>🌙 Just Between Us</h2>
+              <h2>🌙 heyy bulbul</h2>
               <div className="secret-body">
                 <p>
-                  If you found this, it means you held on — and that's kind of exactly like you.
-                  You always hold on. 🌙
+                 if you are seeing this i am long gone from your life ,
+                 and maybe this time not even destiny can unite us  , reason? this time the pain is unbearable even for me.
+                 i am gonna disappear like i never existed , new life , harsh one, silent one a life full of sufferings hatred and trauma's 
+
+
+                                 
                 </p>
                 <p>
-                  This is where the real stuff lives. The things I'd whisper but could never say
-                  out loud. The inside jokes nobody else would get. The memories that are only ours.
+                  i always have known we can't be together , but i always had faith in u u would never 
                 </p>
                 {/* ✏️ REPLACE THIS with your private secret message — just for her */}
                 <p>

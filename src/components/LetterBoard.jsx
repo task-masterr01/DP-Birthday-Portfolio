@@ -9,12 +9,24 @@ const PIN_TYPES = ['pin-lav', 'pin-rose', 'pin-gold'];
 // Slight random rotations for the pinned cards
 const ROTATIONS = [-4, -2, 0, 2, 3, -3, 1, -1, 4, -2, 2, -4, 0, 3, -1];
 
+// ✏️ Change this to whatever password you want to give her!
+const BOARD_PASSWORD = 'bulbul';
+
 export default function LetterBoard() {
   const [letters,  setLetters]  = useState([]);
   const [loading,  setLoading]  = useState(true);
   const [selected, setSelected] = useState(null);
+  
+  // Auth state
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem('board_authenticated') === 'true'
+  );
+  const [passcode, setPasscode] = useState('');
+  const [passError, setPassError] = useState('');
 
   useEffect(() => {
+    if (!isAuthenticated) return;
+    
     fetch('/api/letters')
       .then(res => res.json())
       .then(data => {
@@ -31,7 +43,38 @@ export default function LetterBoard() {
         console.error('Error fetching letters:', err);
         setLoading(false);
       });
-  }, []);
+  }, [isAuthenticated]);
+
+  const handleUnlock = (e) => {
+    e.preventDefault();
+    if (passcode.toLowerCase().trim() === BOARD_PASSWORD.toLowerCase()) {
+      setIsAuthenticated(true);
+      localStorage.setItem('board_authenticated', 'true');
+    } else {
+      setPassError('Incorrect password 🌸');
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div id="board-page" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <form className="signin-card" onSubmit={handleUnlock}>
+          <div className="signin-emoji">🔐</div>
+          <h2 className="signin-title">Private Letters</h2>
+          <p className="signin-sub">These letters are just for {HER_NAME}.<br/>Please enter the password to unlock.</p>
+          <input 
+            className="name-input"
+            type="password"
+            placeholder="Password..."
+            value={passcode}
+            onChange={(e) => { setPasscode(e.target.value); setPassError(''); }}
+          />
+          {passError && <p className="name-error" style={{marginTop: '10px'}}>{passError}</p>}
+          <button className="google-btn" type="submit" style={{marginTop: '15px'}}>Unlock 💌</button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div id="board-page">

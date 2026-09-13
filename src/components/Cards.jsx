@@ -18,7 +18,7 @@ const CARDS = [
   {
     category: "Something I'm Grateful For 🙏",
     emoji: '🙏',
-    message: 'I am genuinely grateful that the universe decided we should know each other. Not everyone gets a person who feels like home — I got lucky. Really lucky.',
+    message: 'I am genuinely grateful that the universe decided we should know each other. Not everyone gets a person who feels like home — I will be forever grateful that I ever had your beautiful presence in my unworthy life. ',
   },
   {
     category: 'A Wish for You ⭐',
