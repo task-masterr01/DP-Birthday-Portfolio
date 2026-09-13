@@ -9,7 +9,6 @@ export default function Message() {
           <h2 className="section-title reveal">From My Heart 💌</h2>
           <p className="section-sub reveal">Some things are better said in writing…</p>
           <div className="letter-card reveal">
-            {/* ✏️ REPLACE [Her Name] and customize these paragraphs */}
             <div className="letter-dear">Dear Deepanshu ,</div>
             <div className="letter-body">
               <p>

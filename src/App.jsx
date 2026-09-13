@@ -13,29 +13,32 @@ import Cards from './components/Cards';
 
 function App() {
   const location = useLocation();
-  const audioRef = useRef(null);
+  const pianoRef = useRef(null);
+  const romanticRef = useRef(null);
 
-  // Handle route changes: play only on '/' and '/cake', with delay and fade-in
+  // Handle route changes to crossfade between two audio tracks
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    const piano = pianoRef.current;
+    const romantic = romanticRef.current;
+    if (!piano || !romantic) return;
 
-    const allowedPaths = ['/', '/cake'];
-    const isAllowed = allowedPaths.includes(location.pathname);
+    const pianoPaths = ['/', '/cake'];
+    const isPianoAllowed = pianoPaths.includes(location.pathname);
 
-    // Clear any existing timeouts/intervals
-    if (audio.fadeInterval) clearInterval(audio.fadeInterval);
-    if (audio.delayTimeout) clearTimeout(audio.delayTimeout);
+    const fadeAudio = (audio, shouldPlay) => {
+      // Clear any existing timeouts/intervals
+      if (audio.fadeInterval) clearInterval(audio.fadeInterval);
+      if (audio.delayTimeout) clearTimeout(audio.delayTimeout);
 
-    if (isAllowed) {
-      // 1. Half second delay
-      audio.delayTimeout = setTimeout(() => {
-        audio.volume = 0;
+      if (shouldPlay) {
+        if (audio.paused) {
+           audio.volume = 0;
+        }
         
         const tryPlayAndFade = () => {
           audio.play().then(() => {
-            // 3. Progressively increase to 20% over ~2 seconds
-            const targetVolume = 0.2;
+            // Progressively increase to 15% volume over ~2 seconds
+            const targetVolume = 0.15;
             const steps = 20;
             const stepTime = 100;
             const volStep = targetVolume / steps;
@@ -60,37 +63,43 @@ function App() {
           });
         };
 
-        if (audio.paused) {
-          tryPlayAndFade();
-        } else {
-          // If already playing (e.g. from previous route), just fade in
-          tryPlayAndFade();
-        }
+        tryPlayAndFade();
+      } else {
+        // If navigating away, gracefully fade out and pause
+        audio.fadeInterval = setInterval(() => {
+          if (audio.volume > 0.05) {
+            audio.volume -= 0.05;
+          } else {
+            audio.volume = 0;
+            audio.pause();
+            clearInterval(audio.fadeInterval);
+          }
+        }, 50);
+      }
+    };
 
-      }, 500);
-    } else {
-      // If navigating away from allowed pages, gracefully fade out and pause
-      audio.fadeInterval = setInterval(() => {
-        if (audio.volume > 0.05) {
-          audio.volume -= 0.05;
-        } else {
-          audio.volume = 0;
-          audio.pause();
-          clearInterval(audio.fadeInterval);
-        }
-      }, 50);
-    }
+    fadeAudio(piano, isPianoAllowed);
+    fadeAudio(romantic, !isPianoAllowed);
 
     return () => {
-      if (audio.fadeInterval) clearInterval(audio.fadeInterval);
-      if (audio.delayTimeout) clearTimeout(audio.delayTimeout);
+      if (piano) {
+        piano.pause();
+        if (piano.fadeInterval) clearInterval(piano.fadeInterval);
+        if (piano.delayTimeout) clearTimeout(piano.delayTimeout);
+      }
+      if (romantic) {
+        romantic.pause();
+        if (romantic.fadeInterval) clearInterval(romantic.fadeInterval);
+        if (romantic.delayTimeout) clearTimeout(romantic.delayTimeout);
+      }
     };
   }, [location.pathname]);
 
   return (
     <>
-      {/* Audio is controlled entirely via JS refs now */}
-      <audio ref={audioRef} id="bg-music" loop src="/birthday-piano.mp3" />
+      {/* Audio elements are controlled entirely via JS refs now */}
+      <audio ref={pianoRef} id="bg-piano" loop src="/birthday-piano.mp3" />
+      <audio ref={romanticRef} id="bg-romantic" loop src="/leberch-romantic-583353.mp3" />
       <CanvasEffects />
       <Routes>
         <Route path="/" element={<Hero />} />

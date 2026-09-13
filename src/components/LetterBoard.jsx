@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-// removed firebase imports
+
 import '../letter.css';
 
-// ✏️ Replace with her actual name
+
 const HER_NAME = 'miss Deepanshu';
 
 const PIN_TYPES = ['pin-lav', 'pin-rose', 'pin-gold'];
-// Slight random rotations for the pinned cards
+
 const ROTATIONS = [-4, -2, 0, 2, 3, -3, 1, -1, 4, -2, 2, -4, 0, 3, -1];
 
-// ✏️ Change this to whatever password you want to give her!
+
 const BOARD_PASSWORD = 'bulbul';
 
 export default function LetterBoard() {
@@ -17,7 +17,7 @@ export default function LetterBoard() {
   const [loading,  setLoading]  = useState(true);
   const [selected, setSelected] = useState(null);
   
-  // Auth state
+  
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem('board_authenticated') === 'true'
   );
@@ -120,7 +120,7 @@ export default function LetterBoard() {
         })}
       </div>
 
-      {/* Full letter overlay */}
+     
       {selected && (
         <div className="letter-overlay" onClick={() => setSelected(null)}>
           <div
