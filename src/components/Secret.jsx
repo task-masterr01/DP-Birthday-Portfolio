@@ -117,15 +117,60 @@ export default function Secret() {
               <div className="secret-body">
                 <p>
                  if you are seeing this i am long gone from your life ,
-                 and maybe this time not even destiny can unite us  , reason? this time the pain is unbearable even for me.
-                 i am gonna disappear like i never existed , new life , harsh one, silent one a life full of sufferings hatred and trauma's 
-
-
-                                 
                 </p>
                 <p>
-                  i always have known we can't be together , but i always had faith in u u would never 
-                </p>
+                  Dear BULBUL , <br />
+                  In your life, kai log aayenge jo tumhare khatir mehnge gifts laane ki hesiyat rakhte honge. All it takes to get an expensive gift is just money, not a single feeling behind it.
+
+                    On the other hand, all I have is my unbounded love and care for you, which are second to none.
+
+                    Giving something that can be bought won't be able to justify your worth in my life. To me, you are worth much more than something that can be bought with money.
+
+                    Money is cheap. Time, effort, and dedication can't be bought and are priceless.
+
+                    While the world after me will try to impress you with expensive things, always remember there was someone who went ahead and built something that belongs only to you. He put his soul and endless nights into it, just for you.
+
+                    I won't curse you or hate you ever in my life, neither now nor ever. To me, you are someone who just can't be hated.
+
+                    But one thing I can say is, in the future when you are settled down in life, you will regret it when:
+
+                    You realize he always came back, no matter how many times you pushed him away.
+
+                    You realize that no matter how many times you tried to push him away, he always came back apologizing, no matter who was at fault.
+
+                    You realize the more you tried to distance yourself, the tighter he hugged you and said, "YAHI HU MAI, KAHI NAHI JAA RAHA."
+
+                    You realize he was never fighting with you; he was fighting for you.
+
+                    You realize in a world full of selfishness, he was always there for you without any reason.
+
+                    You realize no one can truly value you like he did.
+
+                    You realize he would have fixed everything, if only you had shown enough courage to ask him to.
+
+                    You realize asking for your well-being and success is all he ever asked of you.
+
+                    You realize you truly lost the only person who valued you beyond measure.
+
+                    You realize if only you had taken his side, how beautiful a life you both might have had today.
+
+                    You realize for how much less, and for what a materialistic life, you settled down.
+
+                    You realize without you he might have achieved all the dreams he used to say he would, but deep inside, he became a soulless person.
+
+                    You realize in your last days together, instead of cherishing them and living happily, all you gave him was ignorance.
+
+                    You realize you never asked him, "Why me? What am I even worth in your life to receive such treatment?"
+
+                    You realize he has never been the same after saying his farewell.
+
+                    You realize he broke so hard, he doesn't ever want to come back to the same country since he left.
+
+                    You realize no one knows where he went or how he is doing in his life.
+
+                    That's all I have to say. Fun fact: when I asked my AI how much this project is worth in INR, it told me this specific project is beyond any price tag, simply priceless, because: "I have seen you put your soul into this project, working endless nights. The value of something like this cannot be measured."
+
+                    Then, after its speech, it said if talking professionally, it can be valued at ₹25,000+.</p>
                 {/* ✏️ REPLACE THIS with your private secret message — just for her */}
                 <p>
                   [Write your private message here — the things only you two know, the moments
