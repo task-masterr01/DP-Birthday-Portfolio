@@ -48,14 +48,14 @@ export default function Cake() {
                 <div className="drip"></div>
               </div>
               <div className="tier tier-mid">
-                💜 &nbsp; Happy Birthday &nbsp; 💜
+                💜 &nbsp; Happiest Birthday &nbsp; 💜
                 <div className="drip"></div>
                 <div className="drip"></div>
                 <div className="drip"></div>
                 <div className="drip"></div>
               </div>
               <div className="tier tier-bot">
-                ✨ &nbsp; 18 September &nbsp; ✨
+                ✨ &nbsp; Cutie Pie &nbsp; ✨
                 <div className="drip"></div>
                 <div className="drip"></div>
                 <div className="drip"></div>

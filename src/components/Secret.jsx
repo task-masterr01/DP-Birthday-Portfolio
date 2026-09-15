@@ -134,39 +134,40 @@ export default function Secret() {
 
                     But one thing I can say is, in the future when you are settled down in life, you will regret it when: <br />
 
-                    You realize he always came back, no matter how many times you pushed him away. <br />
+                    -You realize he always came back, no matter how many times you pushed him away. <br />
 
-                    You realize that no matter how many times you tried to push him away, he always came back apologizing, no matter who was at fault. <br />
+                    -You realize that no matter how many times you tried to push him away, he always came back apologizing, no matter who was at fault. <br />
 
-                    You realize the more you tried to distance yourself, the tighter he hugged you and said, "YAHI HU MAI, KAHI NAHI JAA RAHA." <br />
+                    -You realize the more you tried to distance yourself, the tighter he hugged you and said, "YAHI HU MAI, KAHI NAHI JAA RAHA." <br />
 
-                    You realize he was never fighting with you; he was fighting for you. <br />
+                    -You realize he was never fighting with you; he was fighting for you. <br />
 
-                    You realize in a world full of selfishness, he was always there for you without any reason. <br />
+                    -You realize in a world full of selfishness, he was always there for you without any reason. <br />
 
-                    You realize no one can truly value you like he did. <br />
+                    -You realize no one can truly value you like he did. <br />
 
-                    You realize he would have fixed everything, if only you had shown enough courage to ask him to. <br />
+                    -You realize he would have fixed everything, if only you had shown enough courage to ask him to. <br />
 
-                    You realize asking for your well-being and success is all he ever asked of you. <br />
+                    -You realize asking for your well-being and success is all he ever asked of you. <br />
 
-                    You realize you truly lost the only person who valued you beyond measure. <br />
+                    -You realize you truly lost the only person who valued you beyond measure. <br />
 
-                    You realize if only you had taken his side, how beautiful a life you both might have had today. <br />
+                    -You realize if only you had taken his side, how beautiful a life you both might have had today. <br />
 
-                    You realize for how much less, and for what a materialistic life, you settled down. <br />
+                    -You realize for how much less, and for what a materialistic life, you settled down. <br />
 
-                    You realize without you he might have achieved all the dreams he used to say he would, but deep inside, he became a soulless person. <br />
+                    -You realize without you he might have achieved all the dreams he used to say he would, but deep inside, he became a soulless person. <br />
 
-                    You realize in your last days together, instead of cherishing them and living happily, all you gave him was ignorance. <br />
+                    -You realize in your last days together, instead of cherishing them and living happily, all you gave him was ignorance. <br />
 
-                    You realize you never asked him, "Why me? What am I even worth in your life to receive such treatment?" <br />
+                    -You realize you never asked him, "Why me? What am I even worth in your life to receive such treatment?" <br />
 
-                    You realize he has never been the same after saying his farewell. <br />
+                    -You realize he has never been the same after saying his farewell. <br />
 
-                    You realize he broke so hard, he doesn't ever want to come back to the same country since he left. <br />
+                    -You realize he broke so hard, he doesn't ever want to come back to the same country since he left. <br />
 
-                    You realize no one knows where he went or how he is doing in his life. <br />
+                    -You realize no one knows where he went or how he is doing in his life. <br />
+                    don't u dare feel sad or guilty for now after reading all this save these emotions for future  <br />for now let's not ruin your moments be joyful and greatful for mine effort and hardwork 
 
                     That's all I have to say. Fun fact: when I asked my AI how much this project is worth in INR, it told me this specific project is beyond any price tag, simply priceless, because: "I have seen you put your soul into this project, working endless nights. The value of something like this cannot be measured." <br />
 
