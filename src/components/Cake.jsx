@@ -34,7 +34,7 @@ export default function Cake() {
                   <div className="candle" key={i}>
                     <div
                       className={`flame ${blown ? 'out' : ''}`}
-                      style={{ transitionDelay: `${i * 180}ms` }}
+                      style={{ transitionDelay: `${i * 220}ms` }}
                     ></div>
                     <div className="candle-body"></div>
                   </div>
@@ -48,14 +48,14 @@ export default function Cake() {
                 <div className="drip"></div>
               </div>
               <div className="tier tier-mid">
-                💜 &nbsp; Happiest Birthday &nbsp; 💜
+                💜 &nbsp; <h4>Happiest Birthday</h4> &nbsp; 💜
                 <div className="drip"></div>
                 <div className="drip"></div>
                 <div className="drip"></div>
                 <div className="drip"></div>
               </div>
               <div className="tier tier-bot">
-                ✨ &nbsp; Cutie Pie &nbsp; ✨
+                ✨ &nbsp; <h4>Dear Cutie Pie</h4> &nbsp; ✨
                 <div className="drip"></div>
                 <div className="drip"></div>
                 <div className="drip"></div>

@@ -262,7 +262,7 @@ export default function WriteLetter() {
                 className="letter-textarea"
                 contentEditable
                 suppressContentEditableWarning
-                data-placeholder={`Dear ${HER_NAME},\n\nWrite your heart out here…`}
+                data-placeholder={`Dear ${HER_NAME},\n\nWrite your heart out here \n this letter will be private between you and her \n and have enough space to contain all your words filled with emotions so write all u want…`}
                 onInput={(e) => {
                   const text = e.currentTarget.innerText;
                   if (text.length > MAX_CHARS) {
