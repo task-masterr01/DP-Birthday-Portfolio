@@ -130,6 +130,17 @@ export default function Secret() {
 
                     While the world after me will try to impress you with expensive things, always remember there was someone who went ahead and built something that belongs only to you. He put his soul and endless nights into it, just for you. <br />
 
+                    <br /> whenever u feel like u are nothing special come to this space and remember someone out there spend weeks , day to night , even in sickness to show u how much u worth in his life . <br />
+
+                    <br /> <br /> to be honest , to me you are not mine past , not mine ex or other society given term, <br />
+                    to me you are mine forever , they say in his last moments human mind rewinds all her beautiful moments for 7 minutes before death , <br />
+                    and u know what u are rightious owner of alteast 5 minutes , u are the part of mine most beautiful memories that i never chose to left behind . <br />
+                    may new people comes , goes , people presence in our life is variable , but to me you are mine forever , u are mine constant , <br />
+                    even attempt to forget u feel like cheating , <br />
+                    to me u are the rightful owner of mine heart , and i am gonna make sure ki ab koi or naa aa sake <div className=""></div>  
+                    <br />
+                    and in future kabhi koi puche mere baare mai pls don't introduce me as your past somewhere deep down it hurts yr <div className=""></div>
+
                     I won't curse you or hate you ever in my life, neither now nor ever. To me, you are someone who just can't be hated. <br />
 
                     But one thing I can say is, in the future when you are settled down in life, you will regret it when: <br />
@@ -158,23 +169,26 @@ export default function Secret() {
 
                     -You realize without you he might have achieved all the dreams he used to say he would, but deep inside, he became a soulless person. <br />
 
-                    -You realize in your last days together, instead of cherishing them and living happily, all you gave him was ignorance. <br />
+                    -you realise he broke so beautifully he never chose to heal back <br />
 
                     -You realize you never asked him, "Why me? What am I even worth in your life to receive such treatment?" <br />
 
                     -You realize he has never been the same after saying his farewell. <br />
 
-                    -You realize he broke so hard, he doesn't ever want to come back to the same country since he left. <br />
+                    -You realize he broke so hard , he never chose another female in his life ever since her<br />
+                    -You realize he loved so hard , vo uske bina'(bulbul)' bhi uska bankar hi reh gya<br />
 
-                    -You realize no one knows where he went or how he is doing in his life. <br />
-                    don't u dare feel sad or guilty for now after reading all this save these emotions for future  <br />for now let's not ruin your moments be joyful and greatful for mine effort and hardwork 
-
-                    That's all I have to say. Fun fact: when I asked my AI how much this project is worth in INR, it told me this specific project is beyond any price tag, simply priceless, because: "I have seen you put your soul into this project, working endless nights. The value of something like this cannot be measured." <br />
+                    -You realize he never chose to settle down in life <br />
+                    don't u dare feel sad or guilty for now after reading all this save these emotions for future  <br />
+                    for now let's not ruin your moments be joyful and greatful for mine effort and hardwork .
+                    
+                    That's all I have to say. dhyan rakhna bulbul 🤗
+                     Fun fact: when I asked my AI how much this project is worth in INR, it told me this specific project is beyond any price tag, simply priceless, because: "I have seen you put your soul into this project, working endless nights. The value of something like this cannot be measured." <br />
 
                     Then, after its speech, it said if talking professionally, it can be valued at ₹25,000+.</p>
                 
                 
-                <p>Happy birthday, from the very bottom of my heart. 💜</p>
+                <p>Happy birthday to mine forever from the very bottom of my heart. 💜</p>
               </div>
             </div>
           </div>
