@@ -126,20 +126,43 @@ export default function Secret() {
 
                     Giving something that can be bought won't be able to justify your worth in my life. To me, you are worth much more than something that can be bought with money. <br />
 
-                    Money is cheap. Time, effort, and dedication can't be bought and are priceless. <br />
+                    Money is cheap. Time,effort, and dedication can't be bought and are priceless. <br />
 
                     While the world after me will try to impress you with expensive things, always remember there was someone who went ahead and built something that belongs only to you. He put his soul and endless nights into it, just for you. <br />
 
                     <br /> whenever u feel like u are nothing special come to this space and remember someone out there spend weeks , day to night , even in sickness to show u how much u worth in his life . <br />
 
-                    <br /> <br /> to be honest , to me you are not mine past , not mine ex or other society given term, <br />
-                    to me you are mine forever , they say in his last moments human mind rewinds all her beautiful moments for 7 minutes before death , <br />
-                    and u know what u are rightious owner of alteast 5 minutes , u are the part of mine most beautiful memories that i never chose to left behind . <br />
-                    may new people comes , goes , people presence in our life is variable , but to me you are mine forever , u are mine constant , <br />
+                    <br /> <br /> to be honest , to me you are not mine past , not mine ex or other society
+                     given term, <br />
+                    to me you are mine forever , they say in his last moments human mind rewinds all
+                     the beautiful moments for 7 minutes before death , <br />
+                    and u know what u are rightious owner of alteast 4 minutes ,
+                     u are the part of mine most beautiful memories that i never chose to left behind . <br />
+                    may new people comes , goes , people presence in our life is variable ,
+                     but to me you are mine forever , u are mine constant , <br />
                     even attempt to forget u feel like cheating , <br />
-                    to me u are the rightful owner of mine heart , and i am gonna make sure ki ab koi or naa aa sake <div className=""></div>  
+                    to me u are the rightful owner of mine heart , and i am gonna make sure ki 
+                    ab koi or naa aa sake 
                     <br />
-                    and in future kabhi koi puche mere baare mai pls don't introduce me as your past somewhere deep down it hurts yr <div className=""></div>
+                    and in future kabhi koi puche mere baare mai pls don't introduce me as your
+                     past somewhere deep down it hurts yr <br />
+
+                     from this exact moment there no one known as deepasnhu poswal exist in mine life , <br />
+                     i will just follow mine own path , if it is written of us being together in destiny it surely will happen <br />
+                     all i have in mine hand is to try everything i can , so when destiny arrive at mine door  i am fully prepared , <br />
+                     and if not i won't have any regret maybe i should have tried more for her , <br />
+                     after trying mine best 'not having that kismat ki lakir jisme tumhe kikha gya hai' will be the only regret in future . 
+                     u know why because fate will be the reason i lost , not love and efforts🙃  . after u i won't give your place to somebody else 
+                     i have decided to live on mine own far away from this place so that not even mine presence ever disturb your peace . 
+                     will settle down in another country have 2 sweet daughters take care on mine own . 
+                     <br /> that's the life i have decided for myself . 
+                     <br /> <br />
+                     from this exact moment i am breaking all knots we have , and removing all your photos , your mail id . 
+                     <br /> the chances of meeting us in future all close to zero , cause i already have set a dream so unachieveable , i don't don't think i will be able to complete it in time 
+                     and as i had said before, i will come back only if i have achieved the dream in time , 
+                     <br /> sorry agar uss version ki vajha se tumhe hurt ho to in future but the thing is vo iklota version hoga mera vo uss dream ko achieve kar sake . 
+                     <br /> all i have to say is mine rudeness will be mine care and love in disguise . 
+                     
 
                     I won't curse you or hate you ever in my life, neither now nor ever. To me, you are someone who just can't be hated. <br />
 
@@ -178,15 +201,18 @@ export default function Secret() {
                     -You realize he broke so hard , he never chose another female in his life ever since her<br />
                     -You realize he loved so hard , vo uske bina'(bulbul)' bhi uska bankar hi reh gya<br />
 
-                    -You realize he never chose to settle down in life <br />
+                    -You realize he never chose to settle down in life <br /><br />
+                    mine expectations towards u is whenever i comes back in futures if destiny allows , i wanna see a person who has achieved great heights on there own , leaving past behind , <br />
+                    don't u dare being stuck in the past , u have a purpose to serve atleast , past can't be changed future can . 
+                    <br /> i have chosen the harshest path . so does u have to ............ <br /> <br />
                     don't u dare feel sad or guilty for now after reading all this save these emotions for future  <br />
                     for now let's not ruin your moments be joyful and greatful for mine effort and hardwork .
                     
-                    That's all I have to say. dhyan rakhna bulbul 🤗
+                   
                      Fun fact: when I asked my AI how much this project is worth in INR, it told me this specific project is beyond any price tag, simply priceless, because: "I have seen you put your soul into this project, working endless nights. The value of something like this cannot be measured." <br />
 
                     Then, after its speech, it said if talking professionally, it can be valued at ₹25,000+.</p>
-                
+                 <br /><br />That's all I have to say. dhyan rakhna bulbul 🤗
                 
                 <p>Happy birthday to mine forever from the very bottom of my heart. 💜</p>
               </div>
