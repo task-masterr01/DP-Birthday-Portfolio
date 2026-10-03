@@ -6,7 +6,6 @@ import Hero from './components/Hero';
 import Cake from './components/Cake';
 import Gallery from './components/Gallery';
 import Message from './components/Message';
-import Secret from './components/Secret';
 import WriteLetter from './components/WriteLetter';
 import LetterBoard from './components/LetterBoard';
 import Cards from './components/Cards';
@@ -108,7 +107,6 @@ function App() {
         <Route path="/cards" element={<Cards />} />
         
         <Route path="/message" element={<Message />} />
-        <Route path="/secret" element={<Secret />} />
         <Route path="/write" element={<WriteLetter />} />
         <Route path="/letters" element={<LetterBoard />} />
         <Route path="*" element={<Navigate to="/" replace />} />
