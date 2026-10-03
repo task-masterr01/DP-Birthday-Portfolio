@@ -1,16 +1,155 @@
-# React + Vite
+# 🎂 Birthday Portfolio — Interactive Birthday Experience
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A personalised, interactive birthday web experience built with React + Vite. Designed as a heartfelt digital gift — complete with animations, a secret easter egg, a letter board, a photo gallery, and ambient background music.
 
-Currently, two official plugins are available:
+> 🌸 Built for someone special. Made with love.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **🔐 Click Gate** — User must click 10 times to unlock the experience (with a progress bar)
+- **🎂 Cake Page** — Interactive birthday cake with a candle-blowing wish mechanic
+- **🖼️ Gallery** — Photo gallery of shared memories
+- **💌 Cards** — Birthday wish cards with beautiful animations
+- **📬 Write a Letter** — Visitors can write and submit personal letters
+- **📋 Letter Board** — A board displaying all received letters (backed by Vercel KV)
+- **🎵 Ambient Music** — Two background tracks that crossfade based on the current route
+- **🎈 Canvas Effects** — Balloons and confetti animations on key moments
+- **🔒 Secret Easter Egg** — Hold the date pill for 5 seconds on the hero page to unlock a hidden `/secret` route
+- **📱 Fully Responsive** — Works on mobile and desktop
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🛣️ Routes
+
+| Path | Page |
+|---|---|
+| `/` | Hero / Landing page |
+| `/cake` | Birthday cake & wish page |
+| `/gallery` | Photo gallery |
+| `/cards` | Birthday cards |
+| `/message` | Personal message page |
+| `/write` | Write a letter form |
+| `/letters` | Public letter board |
+| `/secret` | 🔒 Hidden easter egg page |
+
+---
+
+## 🧱 Tech Stack
+
+| Tech | Purpose |
+|---|---|
+| **React 19** | UI framework |
+| **Vite 8** | Build tool & dev server |
+| **React Router v7** | Client-side routing |
+| **@vercel/kv** | Serverless key-value store for letters |
+| **Vanilla CSS** | All styling (no Tailwind) |
+| **HTML5 Canvas** | Balloons & confetti animations |
+| **Vercel** | Deployment & hosting |
+
+---
+
+## 📁 Project Structure
+
+```
+birthday-portfolio/
+├── api/                  # Vercel serverless API functions
+├── public/               # Static assets (images, audio)
+│   ├── birthday-piano.mp3
+│   └── leberch-romantic-583353.mp3
+├── src/
+│   ├── components/
+│   │   ├── Hero.jsx          # Landing page with click gate & easter egg
+│   │   ├── Cake.jsx          # Birthday cake page
+│   │   ├── Gallery.jsx       # Photo gallery
+│   │   ├── Cards.jsx         # Birthday cards
+│   │   ├── Message.jsx       # Personal message
+│   │   ├── WriteLetter.jsx   # Letter submission form
+│   │   ├── LetterBoard.jsx   # Displays all letters
+│   │   ├── Secret.jsx        # Hidden easter egg page
+│   │   ├── CanvasEffects.jsx # Balloon & confetti canvas logic
+│   │   ├── PageTransition.jsx# Route transition wrapper
+│   │   └── HomeButton.jsx    # Reusable home navigation button
+│   ├── App.jsx               # Root app, routing & audio crossfade
+│   ├── index.css             # Main stylesheet
+│   ├── letter.css            # Letter board styles
+│   └── main.jsx              # Entry point
+├── index.html
+├── vercel.json               # Vercel SPA rewrite rules
+├── vite.config.js
+└── package.json
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js v18+
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/task-masterr01/birthday-portfolio.git
+cd birthday-portfolio
+
+# Install dependencies
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## ☁️ Deployment (Vercel)
+
+This project is deployed on **Vercel** with the following setup:
+
+1. Push to GitHub
+2. Import the repo on [vercel.com](https://vercel.com)
+3. Vercel auto-detects Vite — no config changes needed
+4. Add your `KV_REST_API_URL` and `KV_REST_API_TOKEN` environment variables from your Vercel KV store for the letter board feature
+
+The `vercel.json` includes an SPA rewrite rule so React Router works correctly on all routes.
+
+---
+
+## 🔐 Easter Egg
+
+> On the Hero page, after unlocking, **hold the date pill (18th September 🌸) for 5 seconds** to navigate to the secret page.
+
+---
+
+## 🎵 Background Music
+
+Two audio tracks are used:
+- **Piano** (`birthday-piano.mp3`) — plays on `/` and `/cake`
+- **Romantic** (`leberch-romantic-583353.mp3`) — plays on all other routes
+
+Both tracks crossfade smoothly when navigating between routes.
+
+---
+
+## 📄 License
+
+This project is personal and not licensed for redistribution. Built as a private birthday gift. ❤️
+
+---
+
+*Made with ❤️ by [task-masterr01](https://github.com/task-masterr01)*
