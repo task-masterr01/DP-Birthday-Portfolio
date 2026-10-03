@@ -1,6 +1,6 @@
 # 🎂 Birthday Portfolio — Interactive Birthday Experience
 
-A personalised, interactive birthday web experience built with React + Vite. Designed as a heartfelt digital gift — complete with animations, a secret easter egg, a letter board, a photo gallery, and ambient background music.
+A personalised, interactive birthday web experience built with React + Vite. Designed as a heartfelt digital gift — complete with animations, a letter board, a photo gallery, and ambient background music.
 
 > 🌸 Built for someone special. Made with love.
 
@@ -16,7 +16,6 @@ A personalised, interactive birthday web experience built with React + Vite. Des
 - **📋 Letter Board** — A board displaying all received letters (backed by Vercel KV)
 - **🎵 Ambient Music** — Two background tracks that crossfade based on the current route
 - **🎈 Canvas Effects** — Balloons and confetti animations on key moments
-- **🔒 Secret Easter Egg** — Hold the date pill for 5 seconds on the hero page to unlock a hidden `/secret` route
 - **📱 Fully Responsive** — Works on mobile and desktop
 
 ---
@@ -32,7 +31,6 @@ A personalised, interactive birthday web experience built with React + Vite. Des
 | `/message` | Personal message page |
 | `/write` | Write a letter form |
 | `/letters` | Public letter board |
-| `/secret` | 🔒 Hidden easter egg page |
 
 ---
 
@@ -60,14 +58,13 @@ birthday-portfolio/
 │   └── leberch-romantic-583353.mp3
 ├── src/
 │   ├── components/
-│   │   ├── Hero.jsx          # Landing page with click gate & easter egg
+│   │   ├── Hero.jsx          # Landing page with click gate
 │   │   ├── Cake.jsx          # Birthday cake page
 │   │   ├── Gallery.jsx       # Photo gallery
 │   │   ├── Cards.jsx         # Birthday cards
 │   │   ├── Message.jsx       # Personal message
 │   │   ├── WriteLetter.jsx   # Letter submission form
 │   │   ├── LetterBoard.jsx   # Displays all letters
-│   │   ├── Secret.jsx        # Hidden easter egg page
 │   │   ├── CanvasEffects.jsx # Balloon & confetti canvas logic
 │   │   ├── PageTransition.jsx# Route transition wrapper
 │   │   └── HomeButton.jsx    # Reusable home navigation button
@@ -127,12 +124,6 @@ This project is deployed on **Vercel** with the following setup:
 4. Add your `KV_REST_API_URL` and `KV_REST_API_TOKEN` environment variables from your Vercel KV store for the letter board feature
 
 The `vercel.json` includes an SPA rewrite rule so React Router works correctly on all routes.
-
----
-
-## 🔐 Easter Egg
-
-> On the Hero page, after unlocking, **hold the date pill (18th September 🌸) for 5 seconds** to navigate to the secret page.
 
 ---
 
